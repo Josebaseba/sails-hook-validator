@@ -1,0 +1,37 @@
+{
+  "name": "sails-hook-req-validation",
+  "version": "0.11.2",
+  "description": "Validations in Sailsjs requests",
+  "keywords": [
+    "sails-hook",
+    "sails",
+    "sails.js",
+    "hook",
+    "req-validation",
+    "request-validation",
+    "validation"
+  ],
+  "dependencies": {
+    "validator": "3.26.0"
+  },
+  "devDependencies": {
+    "sails": "^0.11.0"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Josebaseba/sails-hook-req-validation.git"
+  },
+  "sails": {
+    "isHook": true
+  },
+  "author": {
+    "name": "Joseba Legarreta @josebaseba"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Josebaseba/sails-hook-req-validation/issues"
+  },
+  "homepage": "https://github.com/Josebaseba/sails-hook-req-validation",
+  "scripts": {}
+}
