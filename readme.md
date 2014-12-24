@@ -42,7 +42,7 @@ var params = req.validator(['id', {likes: 'int', url: ['url', 'lower'], email: '
 
 // req.params.all() === {id: 1, likes: '12.20', url: 'http://google.es', email: 'JOSEBA@gMaiL.com'}
 var params = req.validator(['id', 'url', {likes: 'float', email: 'email'}]);
-// params = {id: 1, likes: 12.12, url: 'http://google.es', email: 'joseba@gmail.com'}
+// params = {id: 1, likes: 12.20, url: 'http://google.es', email: 'joseba@gmail.com'}
 
 // MORE
 
@@ -81,4 +81,4 @@ var param = req.validator({color: ['hexcolor', 'upper']});
 
 ```
 
-###### I'm working on it, I've to finish the errorParser and tests.
+###### I'm working on it, I've to finish the errorsParser, some refactorization, commenting code and tests.
