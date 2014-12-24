@@ -19,7 +19,7 @@ If something goes wrong it return a 400 to the user with the error, if it goes o
 
   // req.params.all() === {id: 1, name: 'joseba'}
 
-  var params = req.validator('id', 'name', 'password');
+  var params = req.validator('id', 'password');
 
   // params === false && the client has a 400 - password is required
   // so we end the controller execution
