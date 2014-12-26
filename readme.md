@@ -68,7 +68,9 @@ var param = req.validator({color: ['hexcolor', 'upper']});
   'hex'
   'hexcolor'
   'lower'
+  'toLower'
   'upper'
+  'toUpper'
   'string'
   'boolean'
   'int'
@@ -76,9 +78,8 @@ var param = req.validator({color: ['hexcolor', 'upper']});
   'date'
   'json'
   'ascii'
-  'mongoid'
+  'mongoId'
   'alphanumeric'
-
 ```
 
 ###### I'm working on it, I've to finish the errorsParser, some refactorization, commenting code and tests.
