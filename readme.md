@@ -34,25 +34,25 @@ If we want to check the type we can ask for it, for example: int, email, boolean
 
 ```javascript
 
-// req.params.all() === {id: 1, likes: '12.20', url: 'http://google.es', email: 'JOSEBA@gMaiL.com'}
-var params = req.validator(['id', {likes: 'int', url: ['url', 'lower'], email: 'email'}]);
-// params = {id: 1, likes: 12, url: 'http://google.es', email: 'joseba@gmail.com'}
+  // req.params.all() === {id: 1, likes: '12.20', url: 'http://google.es', email: 'JOSEBA@gMaiL.com'}
+  var params = req.validator(['id', {likes: 'int', url: ['url', 'lower'], email: 'email'}]);
+  // params = {id: 1, likes: 12, url: 'http://google.es', email: 'joseba@gmail.com'}
 
-// MORE EXAMPLES
+  // MORE EXAMPLES
 
-// req.params.all() === {id: 1, likes: '12.20', url: 'http://google.es', email: 'JOSEBA@gMaiL.com'}
-var params = req.validator(['id', 'url', {likes: 'float', email: 'email'}]);
-// params = {id: 1, likes: 12.20, url: 'http://google.es', email: 'joseba@gmail.com'}
+  // req.params.all() === {id: 1, likes: '12.20', url: 'http://google.es', email: 'JOSEBA@gMaiL.com'}
+  var params = req.validator(['id', 'url', {likes: 'float', email: 'email'}]);
+  // params = {id: 1, likes: 12.20, url: 'http://google.es', email: 'joseba@gmail.com'}
 
-// MORE
+  // MORE
 
-// req.params.all() === {id: 1, likes: 'hello', url: 'http://google.es', email: 'JOSEBA@gMaiL.com'}
-var params = req.validator(['id', 'url', {likes: 'float', email: 'email'}]);
-// params === false and the client gets a res 400 - 'likes' has to be a float
+  // req.params.all() === {id: 1, likes: 'hello', url: 'http://google.es', email: 'JOSEBA@gMaiL.com'}
+  var params = req.validator(['id', 'url', {likes: 'float', email: 'email'}]);
+  // params === false and the client gets a res 400 - 'likes' has to be a float
 
-// More examples
+  // More examples
 
-var param = req.validator({color: ['hexcolor', 'upper']});
+  var param = req.validator({color: ['hexcolor', 'upper']});
 
 ```
 
@@ -82,4 +82,4 @@ var param = req.validator({color: ['hexcolor', 'upper']});
   'alphanumeric'
 ```
 
-###### I'm working on it, I've to finish the errorsParser, some refactorization, commenting code and tests.
+###### I'm working on it, I've to finish the some refactorization, comments in code, adding tests and docs.
