@@ -2,6 +2,8 @@
 
 module.exports = {
 
-  integer: require('./integer')
+  integer: require('./integer'),
+
+  behavior: require('./behavior')
 
 };
