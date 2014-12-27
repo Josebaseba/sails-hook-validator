@@ -12,7 +12,7 @@ before(function(done) {
     port: 1337,
     log: {level: process.env.log || 'warn'},
     hooks: { grunt: false, validator: reqValidator },
-    globals: {async: false, services: false, models: false, _: false},
+    globals: {async: false, services: false, models: false},
     routes: routes
   }, function(err, sails) {
     // Start the tests
