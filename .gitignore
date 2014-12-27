@@ -17,4 +17,6 @@ xcuserdata
 .svn
 CVS
 
+# npm shit
 node_modules
+npm-debug.log
