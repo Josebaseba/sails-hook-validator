@@ -20,7 +20,7 @@ module.exports = {
   },
 
   byType: function(req, res){
-    var params = req.validator(['name', {id: 'int', surname: 'string'}]);
+    var params = req.validator(['name', {id: 'toInt', surname: 'string'}]);
     if(params) return res.ok(params);
   },
 
