@@ -9,6 +9,7 @@ describe('00 BehaviorController Test', function(){
       method: 'post'
     }, function(err, res, body){
       err.should.be.instanceOf(Object);
+      err.status.should.be.equal(400);
       err.body.should.be.instanceOf(String);
       err.body.should.be.equal('id is required.');
       return done();
