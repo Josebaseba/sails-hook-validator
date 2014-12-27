@@ -20,7 +20,7 @@ module.exports = {
   },
 
   byType: function(req, res){
-    var params = req.validator(['id', {name: 'string', surname: 'string'}]);
+    var params = req.validator(['name', {id: 'int', surname: 'string'}]);
     if(params) return res.ok(params);
   },
 
@@ -28,7 +28,7 @@ module.exports = {
     var filter = [
       'id',
       'surname',
-      { name: ['string', 'toUpper'], age : 'int', size: 'float' }
+      { name: ['string', 'toUpper'], age : 'int', height: 'float' }
     ];
     var params = req.validator(filter);
     if(params) return res.ok(params);
