@@ -100,7 +100,8 @@ describe('00 BehaviorController Test', function(){
     var params = {
       id: 'somecrazyid',
       name: 'joseba',
-      surname: 'legarreta'
+      surname: 'legarreta',
+      age: 22
     };
     sails.request({
       url: '/by-type',
@@ -109,7 +110,7 @@ describe('00 BehaviorController Test', function(){
       err.should.be.instanceOf(Object);
       err.status.should.be.equal(400);
       err.body.should.be.instanceOf(String);
-      err.body.should.be.equal(' id: somecrazyid, has to be int type. ');
+      err.body.should.be.equal(' id: somecrazyid, has to be int type.');
       return done();
     });
 
@@ -119,7 +120,8 @@ describe('00 BehaviorController Test', function(){
     var params = {
       id: '1',
       name: 'joseba',
-      surname: 'legarreta'
+      surname: 'legarreta',
+      age: 22
     };
     sails.request({
       url: '/by-type',
@@ -140,7 +142,8 @@ describe('00 BehaviorController Test', function(){
     var params = {
       id: 1,
       name: 'joseba',
-      surname: 'legarreta'
+      surname: 'legarreta',
+      age: 22
     };
     sails.request({
       url: '/by-type',
@@ -153,6 +156,52 @@ describe('00 BehaviorController Test', function(){
       body.id.should.be.equal(1);
       body.name.should.be.equal('joseba');
       body.surname.should.be.equal('legarreta');
+      should.not.exist(body.age);
+      return done();
+    });
+
+  });
+
+  it('should return age and heigth aren\'t the expected type', function(done){
+    var params = {
+      id: 1,
+      name: 'joseba',
+      surname: 'legarreta',
+      age: '22a',
+      height: '1,88'
+    };
+    sails.request({
+      url: '/by-type-parsed',
+      method: 'get'
+    }, params, function(err, res, body){
+      err.should.be.instanceOf(Object);
+      err.status.should.be.equal(400);
+      err.body.should.be.instanceOf(String);
+      var msg = ' age: 22a, has to be int type. height: 1,88, has to be float type.';
+      err.body.should.be.equal(msg);
+      return done();
+    });
+
+  });
+
+  it('should return the same values but parsed', function(done){
+    var params = {
+      id: '1',
+      name: 'joseba',
+      surname: 'legarreta',
+      age: 22,
+      height: '1.88'
+    };
+    sails.request({
+      url: '/by-type-parsed',
+      method: 'get'
+    }, params, function(err, res, body){
+      if(err) return done(err);
+      body.id.should.be.equal('1');
+      body.name.should.be.equal('JOSEBA');
+      body.surname.should.be.equal('legarreta');
+      body.age.should.be.equal(22);
+      body.height.should.be.equal(1.88);
       return done();
     });
 
