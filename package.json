@@ -1,15 +1,18 @@
 {
-  "name": "sails-hook-req-validation",
-  "version": "0.11.0",
+  "name": "sails-hook-validator",
+  "version": "0.0.1",
   "description": "Validations in Sailsjs requests",
   "keywords": [
     "sails-hook",
     "sails",
     "sails.js",
     "hook",
+    "req-validator",
+    "request-validator",
+    "validator",
+    "validation",
     "req-validation",
-    "request-validation",
-    "validation"
+    "request-validation"
   ],
   "dependencies": {
     "validator": "3.26.0"
