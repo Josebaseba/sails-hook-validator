@@ -26,8 +26,7 @@ module.exports = {
 
   byTypeAndParsed: function(req, res){
     var filter = [
-      'id',
-      'surname',
+      'id', 'surname',
       { name: ['string', 'toUpper'], age : 'int', height: 'float' }
     ];
     var params = req.validator(filter);
