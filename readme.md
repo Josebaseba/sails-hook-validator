@@ -75,6 +75,7 @@ If we want to check the type we can ask for it, for example: int, email, boolean
   'toUpper'
   'string'
   'boolean'
+  'toBoolean'
   'int'
   'float'
   'date'
