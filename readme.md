@@ -83,7 +83,8 @@ If we want to check the type we can ask for it, for example: int, email, boolean
   'json'
   'ascii'
   'mongoId'
-  'alphanumeric'
+  'alphanumeric',
+  'creditCard'
 ```
 
 ###### I'm working on it, I've to finish the some refactorization, comments in code, adding tests and docs.
