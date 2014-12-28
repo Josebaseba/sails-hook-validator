@@ -4,7 +4,8 @@ Sails hook for validate request.
 
 ###req.validator();
 
-###### Under development
+> ######Requirements: 
+Sails v0.11.X and lodash enabled as global (by default it comes enabled). For v0.10.X see below.
 
 If something goes wrong it return a 400 to the user with the error, if it goes ok it returns the params. It works as a filter too, for example if the client sends name and surname but we only want to work with the name:
 
@@ -60,6 +61,7 @@ If we want to check the type we can ask for it, for example: int, email, boolean
 
 ```javascript  
   'email'
+  'toEmail'
   'url'
   'ip'
   'alpha'
@@ -74,8 +76,11 @@ If we want to check the type we can ask for it, for example: int, email, boolean
   'string'
   'boolean'
   'int'
+  'toInt'
   'float'
+  'toFloat'
   'date'
+  'toDate'
   'json'
   'ascii'
   'mongoId'
@@ -83,3 +88,8 @@ If we want to check the type we can ask for it, for example: int, email, boolean
 ```
 
 ###### I'm working on it, I've to finish the some refactorization, comments in code, adding tests and docs.
+
+#### Sails v0.10.X
+
+To work with req.validator() in v0.10 just clone this repo inside of api/hooks folder. <b>Not tested yet in v0.10!</b>
+
