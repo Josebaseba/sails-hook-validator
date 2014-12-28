@@ -1,10 +1,12 @@
 /*
 * IntegerController
-* Chdck if integer validator works
+* Check if integer validator works
 */
 
 module.exports = function(req, res, next){
 
-  return res.send(200, 'okk!');
+  var param = req.validator({id: 'int'});
+
+  if(param) return res.ok(param);
 
 };

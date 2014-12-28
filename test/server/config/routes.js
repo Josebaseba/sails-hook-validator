@@ -12,6 +12,6 @@ module.exports = {
   'get /by-type-parsed'  : controllers.behavior.byTypeAndParsed,
 
   /* Integer */
-  'get /integer': controllers.integer
+  'post /integer': controllers.integer
 
 };
