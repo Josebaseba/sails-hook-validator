@@ -9,9 +9,9 @@ var reqValidator = require('../index');
 before(function(done) {
   Sails.lift({
     // Configuration for testing purposes
-    port: 1337,
+    port: process.env.port || 1992,
     log: {level: process.env.log || 'warn'},
-    hooks: { grunt: false, validator: reqValidator },
+    hooks: {grunt: false, validator: reqValidator},
     globals: {async: false, services: false, models: false},
     routes: routes
   }, function(err, sails) {
