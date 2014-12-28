@@ -93,4 +93,4 @@ If it can't convert or the types doesn't match, it will send the 400 error to th
 
 #### Sails v0.10.X
 
-To work with req.validator() in v0.10 just clone this repo inside of api/hooks folder. <b>Not tested yet in v0.10!</b>
+To work with req.validator() in v0.10 just clone this repo inside of api/hooks folder. <b>Not tested yet in v0.10!</b> But it should work with no problem...
