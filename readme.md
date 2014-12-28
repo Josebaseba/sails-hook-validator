@@ -31,12 +31,14 @@ If something goes wrong it return a 400 to the user with the error, if it goes o
 
 ```
 
-If we want to check the type we can ask for it, for example: int, email, boolean, float... As you know all the ajax request are simple text (string) but req-validator checks if it is posible to convert to the type that we want, if it can't it will send the 400 error to the client. Example:
+If we want to check the type we can ask for it, for example: int, email, boolean, float... req.validator checks if it is the type that we are looking for or if it's posible to convert to the type that we want (ex: 'upper' check if is upperCase text, 'toUpper' upperCase the text if the value is a string, if it couldn't upperCase it the client will get an 400).
+
+If it can't convert or the types doesn't match, it will send the 400 error to the client. Example:
 
 ```javascript
 
-  // req.params.all() === {id: 1, likes: '12.20', url: 'http://google.es', email: 'JOSEBA@gMaiL.com'}
-  var params = req.validator(['id', {likes: 'int', url: ['url', 'lower'], email: 'email'}]);
+  // req.params.all() === {id: 1, likes: '12.20', url: 'HttP://GOOGLE.eS', email: 'JOSEBA@gMaiL.com'}
+  var params = req.validator(['id', {likes: 'int', url: ['url', 'toLower'], email: 'email'}]);
   // params = {id: 1, likes: 12, url: 'http://google.es', email: 'joseba@gmail.com'}
 
   // MORE EXAMPLES
@@ -48,7 +50,7 @@ If we want to check the type we can ask for it, for example: int, email, boolean
   // MORE
 
   // req.params.all() === {id: 1, likes: 'hello', url: 'http://google.es', email: 'JOSEBA@gMaiL.com'}
-  var params = req.validator(['id', 'url', {likes: 'float', email: 'email'}]);
+  var params = req.validator(['id', {url: ['url', 'lower'], likes: 'float', email: 'email'}]);
   // params === false and the client gets a res 400 - 'likes' has to be a float
 
   // More examples
