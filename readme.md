@@ -2,6 +2,10 @@
 
 Sails hook for validate request.
 
+```javascript
+  npm install --save sails-hook-validator
+```
+
 ###req.validator();
 
 > ######Requirements:
