@@ -128,6 +128,7 @@ mocha
 
 log=info port=1234 mocha
 
-// log level options = error, warn (by default), info, verbose and silly
+// log level options = error, warn, info, verbose and silly. By default: warn
+// port by default: 1992
 
 ```
