@@ -93,8 +93,41 @@ If it can't convert or the types doesn't match, it will send the 400 error to th
   'creditCard'
 ```
 
-###### I'm working on it, I've to finish the some refactorization, comments in code, adding tests and docs.
-
 #### Sails v0.10.X
 
 To work with req.validator() in v0.10 just clone this repo inside of api/hooks folder. <b>Not tested yet in v0.10!</b> But it should work with no problem...
+
+## TO-DO
+
+###### I'm working on it, I've to finish the some refactorization, comments in code, adding tests and docs.
+
+- [x] Create basic usage of hook and check if it works
+
+- [x] Publish in npm to test working in a sails application
+
+- [ ] Add the optional parameter option, with an '?' after the param name ('?surname')
+
+- [ ] Finish the tests
+
+- [ ] Publish the 0.11.1 version
+
+- [ ] Test it with sails 0.10
+
+## Tests
+
+To test this hook, you need [mocha](https://github.com/mochajs/mocha) installed in your computer globally.
+
+```javascript
+npm install -g mocha // Just if you don't have mocha installed yet
+
+// And the just run mocha in the hook folder
+
+mocha
+
+// Optional: Change port or log level
+
+log=info port=1234 mocha
+
+// log level options = error, warn (by default), info, verbose and silly
+
+```
