@@ -2,8 +2,10 @@
 
 module.exports = {
 
+  behavior: require('./behavior'),
+
   integer: require('./integer'),
 
-  behavior: require('./behavior')
+  float: require('./float')
 
 };

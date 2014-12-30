@@ -12,6 +12,9 @@ module.exports = {
   'get /by-type-parsed'  : controllers.behavior.byTypeAndParsed,
 
   /* Integer */
-  'post /integer': controllers.integer
+  'post /integer': controllers.integer,
+
+  /* Float */
+  'post /float': controllers.float
 
 };
