@@ -1,6 +1,6 @@
 var should  = require('should');
 
-describe('01 FloatController Test', function(){
+describe('02 FloatController Test', function(){
 
   it('should be 400 code height is required', function(done){
     sails.request({
