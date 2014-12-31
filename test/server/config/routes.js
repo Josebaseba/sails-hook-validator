@@ -10,6 +10,9 @@ module.exports = {
   'put /three-params'    : controllers.behavior.onlyThreeParams,
   'delete /by-type'      : controllers.behavior.byType,
   'get /by-type-parsed'  : controllers.behavior.byTypeAndParsed,
+  'post /optional-parameter': controllers.behavior.optionalParameter,
+  'post /optional-parameter-by-type': controllers.behavior.optionalParameterByType,
+  'post /some-optional-parameters': controllers.behavior.someOptionalParameters,
 
   /* Integer */
   'post /integer': controllers.integer,

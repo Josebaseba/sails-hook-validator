@@ -31,6 +31,25 @@ module.exports = {
     ];
     var params = req.validator(filter);
     if(params) return res.ok(params);
+  },
+
+  optionalParameter: function(req, res){
+    var params = req.validator('?name');
+    if(params.name) return res.ok(params); else return res.ok('empty');
+  },
+
+  optionalParameterByType: function(req, res){
+    var params = req.validator({'?name': ['string', 'lower', 'toUpper']});
+    if(params) return res.ok(params);
+  },
+
+  someOptionalParameters: function(req, res){
+    var filter = [
+      'id', '?name',
+      {'?surname': ['string', 'toUpper'], height: 'float', '?age': 'int'}
+    ];
+    var params = req.validator(filter);
+    if(params) return res.json(params);
   }
 
 };
