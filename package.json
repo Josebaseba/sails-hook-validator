@@ -1,6 +1,6 @@
 {
   "name": "sails-hook-validator",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Validations in Sailsjs requests",
   "keywords": [
     "sails-hook",
