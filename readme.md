@@ -61,6 +61,15 @@ If it can't convert or the types doesn't match, it will send the 400 error to th
 
   var param = req.validator({color: ['hexcolor', 'upper']});
 
+  // More examples
+
+  // Optional values
+
+  var param = req.validator('?nickname', {color: ['hexcolor', 'upper'], '?name': 'toUpper'});
+
+  // If we have a nickname and/or a name parameters it will return it to the param var applying the rules
+  // If nickname or/and name are undefined in the request, it will ignore them and won't send 400
+
 ```
 
 ##### Validation types (for now, maybe I will add more)
@@ -105,7 +114,7 @@ To work with req.validator() in v0.10 just clone this repo inside of api/hooks f
 
 - [x] Publish in npm to test working in a sails application
 
-- [ ] Add the optional parameter option, with an '?' after the param name ('?surname')
+- [x] Add the optional parameter option, with an '?' after the param name ('?surname')
 
 - [ ] Finish the tests
 
