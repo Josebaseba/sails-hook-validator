@@ -367,4 +367,113 @@ describe('00 BehaviorController Test', function(){
     });
   });
 
+  it('should return res code 200 ok', function(done){
+    var params = {
+      id: '12'
+    };
+    sails.request({
+      url: '/no-default-error',
+      method: 'post'
+    }, params, function(err, res, body){
+      if(err) return done(err);
+      res.statusCode.should.be.equal(200);
+      return done();
+    });
+  });
+
+  it('should return 400 Custom text error', function(done){
+    var params = {
+      height: 1.88,
+      name: 'joseba',
+      age: '22years'
+    };
+    sails.request({
+      url: '/no-default-error',
+      method: 'post'
+    }, params, function(err, res, body){
+      err.should.be.instanceOf(Object);
+      err.status.should.be.equal(400);
+      err.body.should.be.instanceOf(String);
+      err.body.should.be.equal('Custom error text');
+      return done();
+    });
+  });
+
+  it('should return 200 ok with no age, surname and name', function(done){
+    var params = {
+      id: 1,
+      height: 1.88
+    };
+    sails.request({
+      url: '/complex-no-default-error',
+      method: 'post'
+    }, params, function(err, res, body){
+      if(err) return done(err);
+      res.statusCode.should.be.equal(200);
+      body.should.be.instanceOf(Object);
+      body.id.should.be.instanceOf(Number);
+      body.id.should.be.equal(1);
+      body.height.should.be.equal(1.88);
+      return done();
+    });
+  });
+
+  it('should return 200 ok with no age and surname', function(done){
+    var params = {
+      id: 1,
+      height: 1.88,
+      name: 'joseba'
+    };
+    sails.request({
+      url: '/complex-no-default-error',
+      method: 'post'
+    }, params, function(err, res, body){
+      if(err) return done(err);
+      res.statusCode.should.be.equal(200);
+      body.should.be.instanceOf(Object);
+      body.id.should.be.instanceOf(Number);
+      body.id.should.be.equal(1);
+      body.height.should.be.equal(1.88);
+      body.name.should.be.equal('joseba');
+      return done();
+    });
+  });
+
+  it('should return 400 error age and height aren\'t valid type', function(done){
+    var params = {
+      id: 1,
+      height: '1,88',
+      name: 'joseba',
+      age: '22years'
+    };
+    sails.request({
+      url: '/complex-no-default-error',
+      method: 'post'
+    }, params, function(err, res, body){
+      err.should.be.instanceOf(Object);
+      err.status.should.be.equal(400);
+      err.body.should.be.instanceOf(String);
+      err.body.should.be.equal('Custom shit');
+      return done();
+    });
+  });
+
+  it('should return 400 id required and not valid age type', function(done){
+    var params = {
+      height: 1.88,
+      name: 'joseba',
+      age: '22years'
+    };
+    sails.request({
+      url: '/complex-no-default-error',
+      method: 'post'
+    }, params, function(err, res, body){
+      err.should.be.instanceOf(Object);
+      err.status.should.be.equal(400);
+      err.body.should.be.instanceOf(String);
+      err.body.should.be.equal('Custom shit');
+      return done();
+    });
+  });
+
 });

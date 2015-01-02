@@ -50,6 +50,20 @@ module.exports = {
     ];
     var params = req.validator(filter);
     if(params) return res.json(params);
+  },
+
+  errorWithNoResponse: function(req, res){
+    var params = req.validator('id', false);
+    if(params) return res.ok(); else return res.badRequest('Custom error text');
+  },
+
+  complexNoErrorResponse: function(req, res){
+    var filter = [
+      'id', '?name',
+      {'?surname': ['string', 'toUpper'], height: 'float', '?age': 'int'}
+    ];
+    var params = req.validator(filter, false);
+    if(params) return res.ok(params); else return res.badRequest('Custom shit');
   }
 
 };

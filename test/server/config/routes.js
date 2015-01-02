@@ -13,6 +13,8 @@ module.exports = {
   'post /optional-parameter': controllers.behavior.optionalParameter,
   'post /optional-parameter-by-type': controllers.behavior.optionalParameterByType,
   'post /some-optional-parameters': controllers.behavior.someOptionalParameters,
+  'post /no-default-error': controllers.behavior.errorWithNoResponse,
+  'post /complex-no-default-error': controllers.behavior.complexNoErrorResponse,
 
   /* Integer */
   'post /integer': controllers.integer,
