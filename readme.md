@@ -21,10 +21,10 @@ If something goes wrong it return a 400 to the user with the error, if it goes o
   // param === {name: 'joseba'}
 
   // MORE EXAMPLES
-
+  // For more that one params the required params have to go in an Array
   // req.params.all() === {id: 1, name: 'joseba'}
 
-  var params = req.validator('id', 'password');
+  var params = req.validator(['id', 'password']);
 
   // params === false && the client has a 400 - password is required
   // so we end the controller execution
@@ -69,6 +69,17 @@ If it can't convert or the types doesn't match, it will send the 400 error to th
 
   // If we have a nickname and/or a name parameters it will return it to the param var applying the rules
   // If nickname or/and name are undefined in the request, it will ignore them and won't send 400
+
+  // More exaples
+
+  // Not sending the default 400 code with error text
+  // Just set the second params as false.
+  var params = req.validator(['nickname', 'email', 'password', '?name'], false);
+
+  // In case of error params === false else the params will be an object with values
+
+  if(params) return res.ok(); else return res.badRequest('Custom message');
+
 
 ```
 
@@ -115,6 +126,8 @@ To work with req.validator() in v0.10 just clone this repo inside of api/hooks f
 - [x] Publish in npm to test working in a sails application
 
 - [x] Add the optional parameter option, with an '?' after the param name ('?surname')
+
+- [x] Add the option of not sending the 400 default error
 
 - [ ] Finish the tests
 
