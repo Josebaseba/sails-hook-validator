@@ -94,7 +94,7 @@ If it can't convert or the types doesn't match, it will send the 400 error to th
   'numeric'
   'base64'
   'hex'
-  'hexcolor'
+  'hexColor'
   'lower'
   'toLower'
   'upper'
