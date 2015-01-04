@@ -142,7 +142,7 @@ To test this hook, you need [mocha](https://github.com/mochajs/mocha) installed 
 ```javascript
 npm install -g mocha // Just if you don't have mocha installed yet
 
-// And the just run mocha in the hook folder
+// And then just run mocha in the hook folder
 
 mocha
 
