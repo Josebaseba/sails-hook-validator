@@ -236,7 +236,7 @@ describe('00 BehaviorController Test', function(){
     });
   });
 
-  it('should return ok with name equal JOSEBA', function(done){
+  it('should return ok with name equal JOSEBA in upperCase', function(done){
     var params = {name: 'joseba'};
     sails.request({
       url: '/optional-parameter-by-type',
@@ -249,16 +249,14 @@ describe('00 BehaviorController Test', function(){
     });
   });
 
-  it('should return ok with no valid type', function(done){
+  it('should return ok with the number as a string', function(done){
     var params = {name: 123};
     sails.request({
       url: '/optional-parameter-by-type',
       method: 'post'
     }, params, function(err, res, body){
-      err.should.be.instanceOf(Object);
-      err.status.should.be.equal(400);
-      err.body.should.be.instanceOf(String);
-      err.body.should.be.equal(' name: 123, has to be string type.');
+      if(err) return done(err);
+      body.name.should.be.equal('123');
       return done();
     });
   });
