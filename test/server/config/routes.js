@@ -20,6 +20,9 @@ module.exports = {
   'post /integer': controllers.integer,
 
   /* Float */
-  'post /float': controllers.float
+  'post /float': controllers.float,
+
+  /* String */
+  'post /string': controllers.string
 
 };

@@ -6,6 +6,8 @@ module.exports = {
 
   integer: require('./integer'),
 
-  float: require('./float')
+  float: require('./float'),
+
+  string: require('./string')
 
 };
