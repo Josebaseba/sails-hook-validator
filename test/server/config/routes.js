@@ -36,6 +36,9 @@ module.exports = {
   'post /alphanumeric': controllers.alphanumeric,
 
   /* Alpha */
-  'post /alpha': controllers.alpha
+  'post /alpha': controllers.alpha,
+
+  /* Numeric */
+  'post /numeric': controllers.numeric
 
 };

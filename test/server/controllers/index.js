@@ -16,6 +16,8 @@ module.exports = {
 
   alphanumeric: require('./alphanumeric'),
 
-  alpha: require('./alpha')
+  alpha: require('./alpha'),
+
+  numeric: require('./numeric')
 
 };
