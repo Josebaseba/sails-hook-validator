@@ -12,6 +12,8 @@ module.exports = {
 
   email: require('./email'),
 
-  url: require('./url')
+  url: require('./url'),
+
+  alphanumeric: require('./alphanumeric')
 
 };
