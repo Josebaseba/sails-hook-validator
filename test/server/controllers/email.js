@@ -1,6 +1,6 @@
 /*
-* IntegerController
-* Check if integer validator works
+* EmailController
+* Check if email validator works
 */
 
 module.exports = {
