@@ -27,6 +27,9 @@ module.exports = {
 
   /* Email */
   'post /email'       : controllers.email.index,
-  'post /google-email': controllers.email.googleEmail
+  'post /google-email': controllers.email.googleEmail,
+
+  /* Url */
+  'post /url': controllers.url,
 
 };

@@ -10,6 +10,8 @@ module.exports = {
 
   string: require('./string'),
 
-  email: require('./email')
+  email: require('./email'),
+
+  url: require('./url')
 
 };
