@@ -14,6 +14,8 @@ module.exports = {
 
   url: require('./url'),
 
-  alphanumeric: require('./alphanumeric')
+  alphanumeric: require('./alphanumeric'),
+
+  alpha: require('./alpha')
 
 };

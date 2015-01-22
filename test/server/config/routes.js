@@ -32,7 +32,10 @@ module.exports = {
   /* Url */
   'post /url': controllers.url,
 
+  /* Alphanumeric */
+  'post /alphanumeric': controllers.alphanumeric,
+
   /* Alpha */
-  'post /alphanumeric': controllers.alphanumeric
+  'post /alpha': controllers.alpha
 
 };
