@@ -1,6 +1,6 @@
 /*
-* AlphaController
-* Check if alpha validator works - numbers and charaters only
+* AlphanumericController
+* Check if alphanumeric validator works - numbers and charaters only
 */
 
 module.exports = function(req, res){
