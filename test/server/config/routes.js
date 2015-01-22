@@ -23,6 +23,10 @@ module.exports = {
   'post /float': controllers.float,
 
   /* String */
-  'post /string': controllers.string
+  'post /string': controllers.string,
+
+  /* Email */
+  'post /email'       : controllers.email.index,
+  'post /google-email': controllers.email.googleEmail
 
 };

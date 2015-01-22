@@ -8,6 +8,8 @@ module.exports = {
 
   float: require('./float'),
 
-  string: require('./string')
+  string: require('./string'),
+
+  email: require('./email')
 
 };
