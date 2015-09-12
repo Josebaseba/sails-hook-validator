@@ -76,9 +76,22 @@ If it can't convert or the types doesn't match, it will send the 400 error to th
   // Just set the second params as false.
   var params = req.validator(['nickname', 'email', 'password', '?name'], false);
 
-  // In case of error params === false else the params will be an object with values
-
-  if(params) return res.ok(); else return res.badRequest('Custom message');
+  ```
+    In case of error params will be equal to
+    
+      {
+         error: true,
+         message: "parsed errors"
+      }
+    
+    Otherwise : 
+    
+      {
+         error: false,
+         message: "will be an object with values"
+      }
+  ```
+  if(params.error) return res.ok(); else return res.badRequest('Custom message');
 
 
 ```
