@@ -33,6 +33,38 @@ If something goes wrong it return a 400 to the user with the error, if it goes o
   // If we have params continue the logic
   User.update(params.id, params).exec(function(){}); //...
 
+  // MORE STUFF
+
+  // Not sending the default 400 code with error text
+  // Just set the second params as false.
+  var params = req.validator(['nickname', 'email', 'password', '?name'], false);
+
+  // In case of error params === false else the params will be an object with values
+
+  if(params) return res.ok(); else return res.badRequest('Custom message');
+
+  // ASYNC WAY GET ERROR AND PARAMS
+
+  var filter = [
+    'id', '?name',
+    {'?surname': ['string', 'toUpper'], height: 'float', '?age': 'int'}
+  ];
+  req.validator(filter, false, function(err, params){
+    // err === {message: 'parsedError...', invalidParameters: ['invalid', 'parameter', 'list']}
+    if(err) return res.badRequest(err.message);
+    return res.ok(params);
+  });
+
+  // OR
+
+  var filter = [
+    'id', '?name',
+    {'?surname': ['string', 'toUpper'], height: 'float', '?age': 'int'}
+  ];
+  req.validator(filter, function(err, params){ // If error the validator will send the req.400
+    if(params) return res.ok(params);
+  });
+
 ```
 
 If we want to check the type we can ask for it, for example: int, email, boolean, float... req.validator checks if it is the type that we are looking for or if it's posible to convert to the type that we want (ex: 'upper' check if is upperCase text, 'toUpper' upperCase the text if the value is a string, if it couldn't upperCase it the client will get an 400).
@@ -69,17 +101,6 @@ If it can't convert or the types doesn't match, it will send the 400 error to th
 
   // If we have a nickname and/or a name parameters it will return it to the param var applying the rules
   // If nickname or/and name are undefined in the request, it will ignore them and won't send 400
-
-  // More exaples
-
-  // Not sending the default 400 code with error text
-  // Just set the second params as false.
-  var params = req.validator(['nickname', 'email', 'password', '?name'], false);
-
-  // In case of error params === false else the params will be an object with values
-
-  if(params) return res.ok(); else return res.badRequest('Custom message');
-
 
 ```
 
