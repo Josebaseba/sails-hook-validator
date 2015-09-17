@@ -1,5 +1,7 @@
 # sails-hook-req-validator
 
+[![Build Status](https://travis-ci.org/Josebaseba/sails-hook-validator.svg?branch=master)](https://travis-ci.org/Josebaseba/sails-hook-validator)
+
 Sails hook for validate request.
 
 ```javascript
