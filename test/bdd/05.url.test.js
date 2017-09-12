@@ -110,7 +110,7 @@ describe('05 UrlController Test', function(){
       err.should.be.instanceOf(Object);
       err.status.should.be.equal(400);
       err.body.should.be.instanceOf(String);
-      err.body.should.be.equal(' url: no!that\'s!not!a!web.com, has to be url type.');
+      err.body.should.be.equal(' url: no!that&#39;s!not!a!web.com, has to be url type.');
       return done();
     });
   });
