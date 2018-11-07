@@ -8,9 +8,9 @@ Sails hook for validate request.
   npm install --save sails-hook-validator
 ```
 
-###req.validator();
+## req.validator();
 
-> ######Requirements:
+>  Requirements:
 Sails v1.0.0 and lodash enabled as global (by default it comes enabled) and node 6 >=
 
 If something goes wrong it return a 400 to the user with the error, if it goes ok it returns the params. It works as a filter too, for example if the client sends name and surname but we only want to work with the name:
