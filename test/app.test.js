@@ -6,22 +6,22 @@ var routes = require('./server/config/routes');
 // Load reqValidator hook
 var reqValidator = require('../index');
 
-before(function(done) {
+before(function (done) {
   Sails.lift({
     // Configuration for testing purposes
     port: process.env.port || 1992,
-    log: {level: process.env.log || 'warn'},
-    hooks: {grunt: false, validator: reqValidator},
-    globals: {async: false, services: false, models: false},
+    log: { level: process.env.log || 'warn' },
+    hooks: { grunt: false, validator: reqValidator },
+    globals: { _: require('lodash'), async: false, services: false, models: false, sails: true },
     routes: routes
-  }, function(err, sails) {
+  }, function (err, sails) {
     // Start the tests
-    if(err) return done(err);
+    if (err) return done(err);
     done(err, sails);
   });
 });
 
 // Shut down the server
-after(function(done){
+after(function (done) {
   return sails.lower(done);
 });

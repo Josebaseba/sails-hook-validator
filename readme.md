@@ -11,7 +11,7 @@ Sails hook for validate request.
 ###req.validator();
 
 > ######Requirements:
-Sails v0.11.X and lodash enabled as global (by default it comes enabled). For v0.10.X see below.
+Sails v1.0.0 and lodash enabled as global (by default it comes enabled) and node 6 >=
 
 If something goes wrong it return a 400 to the user with the error, if it goes ok it returns the params. It works as a filter too, for example if the client sends name and surname but we only want to work with the name:
 
@@ -135,28 +135,6 @@ If it can't convert or the types doesn't match, it will send the 400 error to th
   'alphanumeric',
   'creditCard'
 ```
-
-#### Sails v0.10.X
-
-To work with req.validator() in v0.10 just clone this repo inside of api/hooks folder. <b>Not tested yet in v0.10!</b> But it should work with no problem...
-
-## TO-DO
-
-###### I'm working on it, I've to finish the some refactorization, comments in code, adding tests and docs.
-
-- [x] Create basic usage of hook and check if it works
-
-- [x] Publish in npm to test working in a sails application
-
-- [x] Add the optional parameter option, with an '?' after the param name ('?surname')
-
-- [x] Add the option of not sending the 400 default error
-
-- [ ] Finish the tests
-
-- [ ] Publish the 0.11.1 version
-
-- [ ] Test it with sails 0.10
 
 ## Tests
 
