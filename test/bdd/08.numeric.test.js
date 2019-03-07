@@ -34,12 +34,12 @@ describe('06 Numeric Test', function () {
     }, { numeric: 123 }, function (err, res, body) {
       if (err) return done(err);
       res.statusCode.should.be.equal(200);
-      body.numeric.should.be.equal(123);
+      body.numeric.should.be.equal('123');
       return done();
     });
   });
 
-  it('should be 400 code, not valid caracter added', function (done) {
+  it('should be 400 code, not valid character added', function (done) {
     sails.request({
       url: '/numeric',
       method: 'post'
@@ -78,15 +78,14 @@ describe('06 Numeric Test', function () {
     });
   });
 
-  it('should be 400 code, not valid numeric type', function (done) {
+  it('should be 200 code, valid numeric type', function (done) {
     sails.request({
       url: '/numeric',
       method: 'post'
     }, { numeric: '1.1' }, function (err, res, body) {
-      err.should.be.instanceOf(Object);
-      err.status.should.be.equal(400);
-      err.body.should.be.instanceOf(String);
-      err.body.should.be.equal(' numeric: 1.1, has to be numeric type.');
+      if (err) return done(err);
+      res.statusCode.should.be.equal(200);
+      body.numeric.should.be.equal('1.1');
       return done();
     });
   });

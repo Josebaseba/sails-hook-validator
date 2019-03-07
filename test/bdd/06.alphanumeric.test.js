@@ -58,7 +58,7 @@ describe('06 AlphanumericController Test', function () {
     }, { alpha: 1 }, function (err, res, body) {
       if (err) return done(err);
       res.statusCode.should.be.equal(200);
-      body.alpha.should.be.equal(1);
+      body.alpha.should.be.equal('1');
       return done();
     });
   });
