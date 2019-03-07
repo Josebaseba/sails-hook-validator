@@ -106,42 +106,69 @@ If it can't convert or the types doesn't match, it will send the 400 error to th
 
 ```
 
-##### Validation types (for now, maybe I will add more)
+### Validation
 
-```javascript  
-  'email'
-  'toEmail'
-  'url'
-  'ip'
-  'alpha'
-  'numeric'
-  'base64'
-  'hex'
-  'hexColor'
-  'lower'
-  'toLower'
-  'upper'
-  'toUpper'
-  'string'
-  'boolean'
-  'toBoolean'
-  'int'
-  'float'
-  'date'
-  'toDate'
-  'json'
-  'ascii'
-  'mongoId'
-  'alphanumeric',
-  'creditCard'
-```
+Validation uses [validation](https://www.npmjs.com/package/validator) package under the hooh
+
+#### Validation types
+
+*   `alpha` - letters only
+*   `alphanumeric` - letters and numbers
+*   `ascii`
+*   `base64`
+*   `boolean`
+*   `country2` - ISO 3166-1 alpha-2
+*   `country3` - ISO 3166-1 alpha-3
+*   `creditCard`
+*   `date` - ISO 8601 or RFC 3339 date
+*   `email`
+*   `empty`
+*   `float`
+*   `fqdn` - fully qualified domain name
+*   `hex`
+*   `hexColor`
+*   `int`
+*   `ip` - IPv4 or IPv6
+*   `ipRange` - IPv4 range
+*   `isbn` - ISBN
+*   `issn` - ISSN
+*   `isin` - ISIN
+*   `isrc` - ISRC
+*   `json`
+*   `jwt`
+*   `latlon`
+*   `lower` - lowercase
+*   `macAddress`
+*   `mobilePhone`
+*   `md5`
+*   `mongoId`
+*   `numeric`
+*   `port`
+*   `string`
+*   `upper` - uppercase
+*   `uuid` - UUID v 3, 4 or 5
+*   `url`
+
+#### Sanitization types
+
+*   `escape` - replace <, >, &, ', " and / with HTML entities 
+*   `unescape` - replaces HTML encoded entities with <, >, &, ', " and /
+*   `trim` - trim whitespaces from left and right
+*   `ltrim` - trim whitespaces from left
+*   `rtrim` - trim whitespaces from right
+*   `toBoolean`
+*   `toDate`
+*   `toEmail`
+*   `toLower`
+*   `toUpper`
 
 ## Tests
 
-To test this hook, you need [mocha](https://github.com/mochajs/mocha) installed in your computer globally.
+To test this hook, you need [mocha](https://www.npmjs.com/package/mocha) installed in your computer globally.
 
 ```javascript
-npm install -g mocha // Just if you don't have mocha installed yet
+// Just if you don't have mocha installed yet
+npm install -g mocha
 
 // And then just run mocha in the hook folder
 
@@ -153,5 +180,4 @@ log=info port=1234 mocha
 
 // log level options = error, warn, info, verbose and silly. By default: warn
 // port by default: 1992
-
 ```
