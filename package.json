@@ -35,6 +35,7 @@
     "Joseba Legarreta @josebaseba",
     "Viktor Šulák <viktor.sulak@touch4it.com>"
   ],
+  "private": false,
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Josebaseba/sails-hook-validator/issues"
