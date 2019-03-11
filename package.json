@@ -1,5 +1,5 @@
 {
-  "name": "sails-hook-validator",
+  "name": "@touch4it/sails-hook-validator",
   "version": "2.0.2",
   "description": "Validations in Sails.js requests",
   "keywords": [
@@ -26,14 +26,15 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/Josebaseba/sails-hook-validator.git"
+    "url": "git://github.com/vsulak/sails-hook-validator.git"
   },
   "sails": {
     "isHook": true
   },
-  "author": {
-    "name": "Joseba Legarreta @josebaseba"
-  },
+  "contributors": [
+    "Joseba Legarreta @josebaseba",
+    "Viktor Šulák <viktor.sulak@touch4it.com>"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Josebaseba/sails-hook-validator/issues"

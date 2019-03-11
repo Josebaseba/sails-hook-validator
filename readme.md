@@ -5,7 +5,7 @@
 Sails hook for validate request.
 
 ```javascript
-  npm install --save sails-hook-validator
+  npm install --save @touch4it/sails-hook-validator
 ```
 
 ## req.validator();
