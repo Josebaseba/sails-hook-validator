@@ -1,6 +1,13 @@
 # sails-hook-req-validator
 
-[![Build Status](https://travis-ci.org/Josebaseba/sails-hook-validator.svg?branch=master)](https://travis-ci.org/Josebaseba/sails-hook-validator)
+[![Build Status](https://travis-ci.org/Josebaseba/sails-hook-validator.svg?branch=master)](https://travis-ci.org/@touch4it/sails-hook-validator)
+![Sails dependency version (scoped)](https://img.shields.io/npm/dependency-version/@touch4it/sails-hook-validator/dev/sails)
+![Validator dependency version (scoped)](https://img.shields.io/npm/dependency-version/@touch4it/sails-hook-validator/validator)
+![GitHub license](https://img.shields.io/badge/license-ISC-blue.svg)
+![npm version](https://img.shields.io/npm/v/@touch4it/sails-hook-validator)
+![node version](https://img.shields.io/node/v/@touch4it/sails-hook-validator)
+![vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@touch4it/sails-hook-validator)
+![last commit](https://img.shields.io/github/last-commit/touch4it/sails-hook-validator)
 
 Sails hook for validate request.
 
@@ -11,7 +18,7 @@ Sails hook for validate request.
 ## req.validator();
 
 >  Requirements:
-Sails v1.0.0 and lodash enabled as global (by default it comes enabled) and node 6 >=
+[Sails](https://www.npmjs.com/package/sails) ^1.0.0 and lodash enabled as global (by default it comes enabled) and Node.js 10 >=
 
 If something goes wrong it return a 400 to the user with the error, if it goes ok it returns the params. It works as a filter too, for example if the client sends name and surname but we only want to work with the name:
 
@@ -151,7 +158,7 @@ Validation uses [validation](https://www.npmjs.com/package/validator) package un
 
 #### Sanitization types
 
-*   `escape` - replace <, >, &, ', " and / with HTML entities 
+*   `escape` - replace <, >, &, ', " and / with HTML entities
 *   `unescape` - replaces HTML encoded entities with <, >, &, ', " and /
 *   `trim` - trim whitespaces from left and right
 *   `ltrim` - trim whitespaces from left
