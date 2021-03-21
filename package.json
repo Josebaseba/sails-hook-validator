@@ -1,6 +1,6 @@
 {
   "name": "@touch4it/sails-hook-validator",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "Validations in Sails.js requests",
   "keywords": [
     "sails-hook",
@@ -24,13 +24,15 @@
   "devDependencies": {
     "lodash": "^4.17.21",
     "mocha": "^8.3.2",
-    "sails": "^1.0.0",
     "should": "^13.2.3"
+  },
+  "peerDependencies": {
+    "sails": "^1.0.0"
   },
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/vsulak/sails-hook-validator.git"
+    "url": "https://github.com/touch4it/sails-hook-validator"
   },
   "sails": {
     "isHook": true
@@ -42,9 +44,9 @@
   "private": false,
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Josebaseba/sails-hook-validator/issues"
+    "url": "https://github.com/touch4it/sails-hook-validator/issues"
   },
-  "homepage": "https://github.com/Josebaseba/sails-hook-validator",
+  "homepage": "https://github.com/touch4it/sails-hook-validator",
   "scripts": {
     "test": "mocha"
   }

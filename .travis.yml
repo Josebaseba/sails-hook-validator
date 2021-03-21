@@ -5,3 +5,6 @@ node_js:
   - "12"
   - "14"
   - "15"
+
+before_install:
+  - "npm install sails"
