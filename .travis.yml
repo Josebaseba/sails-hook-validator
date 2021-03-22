@@ -1,6 +1,10 @@
 language: node_js
 
 node_js:
-  - "6"
-  - "8"
   - "10"
+  - "12"
+  - "14"
+  - "15"
+
+before_install:
+  - "npm install sails@1"
