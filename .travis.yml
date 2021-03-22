@@ -7,4 +7,4 @@ node_js:
   - "15"
 
 before_install:
-  - "npm install sails"
+  - "npm install sails@1"

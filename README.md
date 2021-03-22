@@ -15,102 +15,147 @@ Sails hook for validate request.
   npm install --save @touch4it/sails-hook-validator
 ```
 
-## req.validator();
+## `req.validator(rules, [sendResponse=true, [cb]])`
 
 >  Requirements:
-[Sails](https://www.npmjs.com/package/sails) ^1.0.0 and lodash enabled as global (by default it comes enabled) and Node.js >= 10
+> - [Sails](https://www.npmjs.com/package/sails) ^1.0.0
+> - [Lodash](https://www.npmjs.com/package/lodash) enabled as global in Sails (by default it comes enabled)
+> - Node.js >= 10
 
-If something goes wrong it return a 400 to the user with the error, if it goes ok it returns the params. It works as a filter too, for example if the client sends name and surname but we only want to work with the name:
+### `rules`
 
-```javascript
+Rules defined as string parameter name (required string value) or object (more complex validation). Rules passed as array of strings or objects
+
+Optional parameters prefixed with `?`
+
+Possible options specified later in "Validation types" section
+
+```js
+req.validator(['name']);
+
+```
+
+```js
+req.validator([{'name': 'string'}]);
+```
+
+```js
+req.validator(['?name']);
+
+```
+
+### `sendResponse`
+
+`true`: If something goes wrong, return a 400 to the user with the error
+
+`false`: Return
+
+### `cb`
+
+Callback function
+
+## Return value
+
+If something goes wrong it returns a 400 or false, based on `sendResponse`. If validation is successful, it returns the params. It works as a filter too, since it returns only parameters specified in `rules`.
+
+## Examples
+
+Filter of parameters
+
+If there is single parameter to be validated, we can pass it as string instead of array
+
+```js
   // req.params.all() === {name: 'joseba', surname: 'legarreta'}
 
-  var param = req.validator('name');
+  const params = req.validator('name');
 
-  // param === {name: 'joseba'}
+  // params === {name: 'joseba'}
+```
 
-  // MORE EXAMPLES
-  // For more that one params the required params have to go in an Array
+For more that one params the required params have to pass it as an Array
+
+Missing parameter causes system to return 400 if second parameter (`sendResponse`) is not set or `true`. False is returned if second parameter is `false`
+
+```js
   // req.params.all() === {id: 1, name: 'joseba'}
 
-  var params = req.validator(['id', 'password']);
+  const params = req.validator(['id', 'password'], false);
 
-  // params === false && the client has a 400 - password is required
-  // so we end the controller execution
+  // params === false
 
-  if(!params) return null;
-  // If we have params continue the logic
-  User.update(params.id, params).exec(function(){}); //...
+  if (!params) {
+    return null;
+  }
+```
 
-  // MORE STUFF
+```js
+  // req.params.all() === {id: 1, name: 'joseba'}
 
-  // Not sending the default 400 code with error text
-  // Just set the second params as false.
-  var params = req.validator(['nickname', 'email', 'password', '?name'], false);
+  const params = req.validator(['id', 'password']);
 
-  // In case of error params === false else the params will be an object with values
+  // Sent 400 with message "password is required."
+```
 
-  if(params) return res.ok(); else return res.badRequest('Custom message');
+Callback function can be used to notify execution end
 
-  // ASYNC WAY GET ERROR AND PARAMS
-
-  var filter = [
-    'id', '?name',
-    {'?surname': ['string', 'toUpper'], height: 'float', '?age': 'int'}
+```js
+  const filter = [
+    'id',
+    '?name',
+    {'?surname': ['string', 'toUpper']},
+    height: 'float',
+    '?age': 'int'
   ];
-  req.validator(filter, false, function(err, params){
+  req.validator(filter, false, function(err, params) {
     // err === {message: 'parsedError...', invalidParameters: ['invalid', 'parameter', 'list']}
-    if(err) return res.badRequest(err.message);
+    if (err) {
+      return res.badRequest(err.message);
+    }
     return res.ok(params);
   });
-
-  // OR
-
-  var filter = [
-    'id', '?name',
-    {'?surname': ['string', 'toUpper'], height: 'float', '?age': 'int'}
+```
+or
+```js
+  const filter = [
+    'id',
+    '?name',
+    {'?surname': ['string', 'toUpper']},
+    height: 'float',
+    '?age': 'int'
   ];
-  req.validator(filter, function(err, params){ // If error the validator will send the req.400
-    if(params) return res.ok(params);
+  req.validator(filter, function(err, params) {
+    // If error occurs the validator will use req.status(400).send(...)
+    return res.ok(params);
   });
 
 ```
 
-If we want to check the type we can ask for it, for example: int, email, boolean, float... req.validator checks if it is the type that we are looking for or if it's posible to convert to the type that we want (ex: 'upper' check if is upperCase text, 'toUpper' upperCase the text if the value is a string, if it couldn't upperCase it the client will get an 400).
+Apart from validation, we can also use sanitization of inputs
 
-If it can't convert or the types doesn't match, it will send the 400 error to the client. Example:
-
-```javascript
+```js
 
   // req.params.all() === {id: 1, likes: '12.20', url: 'HttP://GOOGLE.eS', email: 'JOSEBA@gMaiL.com'}
-  var params = req.validator(['id', {likes: 'int', url: ['url', 'toLower'], email: 'email'}]);
+  const params = req.validator(['id', {likes: 'int', url: ['url', 'toLower'], email: 'email'}]);
   // params = {id: 1, likes: 12, url: 'http://google.es', email: 'joseba@gmail.com'}
-
-  // MORE EXAMPLES
-
+```
+```js
   // req.params.all() === {id: 1, likes: '12.20', url: 'http://google.es', email: 'JOSEBA@gMaiL.com'}
-  var params = req.validator(['id', 'url', {likes: 'float', email: 'email'}]);
+  const params = req.validator(['id', 'url', {likes: 'float', email: 'email'}]);
   // params = {id: 1, likes: 12.20, url: 'http://google.es', email: 'joseba@gmail.com'}
-
-  // MORE
-
+```
+```js
   // req.params.all() === {id: 1, likes: 'hello', url: 'http://google.es', email: 'JOSEBA@gMaiL.com'}
-  var params = req.validator(['id', {url: ['url', 'lower'], likes: 'float', email: 'email'}]);
-  // params === false and the client gets a res 400 - 'likes' has to be a float
+  const params = req.validator(['id', {url: ['url', 'lower'], likes: 'float', email: 'email'}]);
+  // Client gets a 400 - 'likes' has to be a float
+```
 
-  // More examples
+We can also specify optional values by prefixing `?`
 
-  var param = req.validator({color: ['hexcolor', 'upper']});
-
-  // More examples
-
-  // Optional values
-
-  var param = req.validator('?nickname', {color: ['hexcolor', 'upper'], '?name': 'toUpper'});
-
-  // If we have a nickname and/or a name parameters it will return it to the param var applying the rules
+```js
+  // If we have a nickname and/or a name parameters it will return it to the `param`  applying the rules
   // If nickname or/and name are undefined in the request, it will ignore them and won't send 400
 
+  const param = req.validator('?nickname', {color: ['hexcolor', 'upper'], '?name': 'toUpper'});
 ```
 
 ### Validation

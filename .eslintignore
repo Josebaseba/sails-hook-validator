@@ -1,0 +1,39 @@
+# Sails.js folders
+.tmp/
+config/locales/
+
+# Documentation folders
+apidoc/
+jsdoc/
+docs/
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Grunt intermediate storage
+.grunt
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Output of 'npm pack'
+*.tgz
+
+# Coverage
+coverage
+.nyc_output
+
+# dotenv environment variables file
+.env
+
+# Test data
+test/fixtures/

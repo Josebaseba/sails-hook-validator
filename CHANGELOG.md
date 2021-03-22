@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 2.3.0 (2021-03-22)
+
+- Added eslint
+- Refactored code using eslint suggestions
+- Updated readme
+
 ## 2.2.0 (2021-03-21)
 
 - Updated Sails dependency to be peer dependency to prevent version locking

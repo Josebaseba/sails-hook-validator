@@ -1,0 +1,5 @@
+{
+	"extends": [
+    "touch4it/sails"
+  ]
+}

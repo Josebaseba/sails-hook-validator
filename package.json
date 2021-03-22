@@ -1,7 +1,7 @@
 {
   "name": "@touch4it/sails-hook-validator",
-  "version": "2.2.0",
-  "description": "Validations in Sails.js requests",
+  "version": "2.3.0",
+  "description": "Validation hook for Sails.js requests",
   "keywords": [
     "sails-hook",
     "sails",
@@ -22,6 +22,8 @@
     "validator": "^13.5.2"
   },
   "devDependencies": {
+    "eslint": "^7.22.0",
+    "eslint-config-touch4it": "^7.0.0",
     "lodash": "^4.17.21",
     "mocha": "^8.3.2",
     "should": "^13.2.3"
@@ -48,6 +50,8 @@
   },
   "homepage": "https://github.com/touch4it/sails-hook-validator",
   "scripts": {
-    "test": "mocha"
+    "lint": "eslint lib/*.js index.js",
+    "unit": "mocha",
+    "test": "npm run lint && npm run unit"
   }
 }
